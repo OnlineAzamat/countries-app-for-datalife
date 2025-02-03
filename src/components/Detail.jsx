@@ -31,17 +31,17 @@ const Detail = () => {
               <p><b>Native name: </b><span className="font-light">{data?.name.nativeName?.eng?.official}</span></p>
               <p>
                 <b>Population: </b>
-                <span className="font-light">{ data?.population > 999 ? Math.floor(data?.population / 1000) + "," + data?.population % 1000 : data?.population}</span>
+                <span className="font-light">{ data?.population.toLocaleString('en-US') }</span>
               </p>
               <p><b>Region: </b><span className="font-light">{data?.region}</span></p>
               <p><b>Capital: </b><span className="font-light">{data?.capital[0]}</span></p>
             </div>
             <div className="leading-10">
               <p><b>Time Zones: </b><span className="font-light">{data?.timezones[0]}</span></p>
-              <p><b>Area: </b><span className="font-light">{data?.area}</span> km<sup>2</sup></p>
+              <p><b>Area: </b><span className="font-light">{data?.area.toLocaleString('en-US')}</span> km<sup>2</sup></p>
             </div>
           </div>
-          <div className="leading-10 hover:text-[#535bf2]"><a href={data?.maps.googleMaps}>Google Maps </a><i className="bi bi-box-arrow-up-right"></i></div>
+          <div><a href={data?.maps.googleMaps} className="leading-10 hover:text-[#535bf2]">Google Maps <i className="bi bi-box-arrow-up-right"></i></a></div>
         </div>
       </div>
     </div>

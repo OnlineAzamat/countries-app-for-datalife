@@ -41,7 +41,7 @@ const Home = () => {
                 </div>
                 <div className="details p-2 pl-4 pr-4">
                   <h2 className="text-xl mb-2">{country?.name?.common}</h2>
-                  <p><strong>Population:</strong> {country.population}</p>
+                  <p><strong>Population:</strong>{ country?.population.toLocaleString('en-US') }</p>
                   <p><strong>Region:</strong> {country.region}</p>
                 </div>
               </Link>
