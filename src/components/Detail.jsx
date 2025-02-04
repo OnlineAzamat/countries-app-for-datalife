@@ -15,7 +15,7 @@ const Detail = () => {
   
   return (
     <div className="ml-16 mr-16 mt-4">
-      <Link to="/" className="back flex gap-1 rounded drop-shadow-md"><i className="bi bi-arrow-left-short"></i><span>Back</span></Link>
+      <Link to="/" className="back flex gap-1 rounded-xl drop-shadow-md"><i className="bi bi-arrow-left-short"></i><span>Back</span></Link>
 
       <div className="container pt-8 sm:justify-between sm:flex">
         <div className="flag-img sm:w-[50%]">
