@@ -39,6 +39,18 @@ body {
   }
 }
 
+.modal-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color: black, $alpha: .85);
+}
+
 .back {
   background-color: $bg-home;
   padding: .5rem .8rem;

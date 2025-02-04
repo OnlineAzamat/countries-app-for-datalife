@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
-import Detail from './components/Detail'
+import NotFoundPage from './components/NotFoundPage'
 
 import './App.scss'
 
@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
     <Navbar />
       <Routes>
+        <Route path='*' element={<NotFoundPage />} />
         <Route path='/' element={<Home />} />
-        <Route path='/country/:name' element={<Detail />} />
       </Routes>
     </BrowserRouter>
   )
