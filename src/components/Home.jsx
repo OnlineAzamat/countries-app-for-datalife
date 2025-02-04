@@ -56,12 +56,12 @@ const Home = () => {
   
   return (
     <div className="md:mx-16 sm:mx-8 max-sm:mx-4 mt-4">
-      <div className="control flex justify-between">
+      <div className="control sm:flex justify-between">
         <div className="search w-min relative p-2">
           <i className="bi bi-search text-black text-xl absolute top-[27%] left-[1.2rem]"></i>
           <input type="text" onChange={handleSearchChange} className='p-2 pl-10 border rounded text-black' placeholder='Search for a country...' />
         </div>
-        <select name="Region" id="region" className='text-black m-2 rounded sm:px-3 max-sm:px-1' onChange={handleRegionChange}>
+        <select name="Region" id="region" className='text-black m-2 rounded sm:px-3 max-sm:px-4 max-sm:py-2' onChange={handleRegionChange}>
           <option value="">-Choose a Region-</option>
           <option value="africa">Africa</option>
           <option value="antarctic">Antarctic</option>
