@@ -20,7 +20,6 @@ body {
 
   .flag {
     width: 100%;
-    height: 220px;
     overflow: hidden;
     
     img {
@@ -42,7 +41,7 @@ body {
 
 .back {
   background-color: $bg-home;
-  padding: .5rem 1rem;
+  padding: .5rem .8rem;
   width: min-content;
   transition: 0.15s;
 

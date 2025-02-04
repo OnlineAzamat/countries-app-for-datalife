@@ -33,13 +33,13 @@ const Home = () => {
   };
   
   return (
-    <div className="ml-16 mr-16 mt-4">
-      <div className="control flex ">
+    <div className="md:mx-16 sm:mx-8 max-sm:mx-4 mt-4">
+      <div className="control flex justify-between">
         <div className="search w-min relative p-2">
           <i className="bi bi-search text-black text-xl absolute top-[27%] left-[1.2rem]"></i>
           <input type="text" onChange={handleSearchChange} className='p-2 pl-10 border rounded text-black' placeholder='Search for a country...' />
         </div>
-        <select name="Region" id="region" className='text-black m-2 rounded px-3' onChange={handleRegionChange}>
+        <select name="Region" id="region" className='text-black m-2 rounded sm:px-3 max-sm:px-1' onChange={handleRegionChange}>
           <option value="">-Choose a Region-</option>
           <option value="africa">Africa</option>
           <option value="antarctic">Antarctic</option>
@@ -49,16 +49,16 @@ const Home = () => {
           <option value="oceania">Oceania</option>
         </select>
       </div>
-      <div className="countries pt-5 px-2 grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="countries pt-5 px-2 grid grid-cols-1 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 sm:px-0 gap-8">
         {
           !filteredCountries ? <Skeleton count={1} className='h-[250px] cursor-not-allowed' /> :
           filteredCountries.map((country, id) => {
             return (
               <Link to={`/country/${country.name.common}`} className="country rounded-lg shadow-md hover:shadow-2xl" key={country.name.common + id}>
-                <div className="flag">
+                <div className="flag xl:h-[220px] md:h-[170px] sm:h-[150px]">
                   <img src={country?.flags?.png} className='w-[100%]' alt={country?.name?.common} />
                 </div>
-                <div className="details p-4">
+                <div className="details p-6">
                   <h2 className="text-2xl font-semibold mb-2">{country?.name?.common}</h2>
                   <p><strong>Population: </strong>{ country?.population.toLocaleString('en-US') }</p>
                   <p><strong>Region: </strong> {country.region}</p>
