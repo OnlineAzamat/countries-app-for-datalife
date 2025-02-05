@@ -1,20 +1,31 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
-$bg-home: #2B3944;
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background: #202C38;
+body.dark {
+  background: #2B3944;
   color: #fff;
+
+  .navbar {
+    background: #2B3944;
+  }
+
+  .country:hover {
+    background: #364550;
+  }
+
+  .modal-wrapper {
+    .modal-content {
+      background: #2B3944;
+    }
+  }
 }
 
 .country {
-  background: $bg-home;
   overflow: hidden;
   transition: 0.25s;
 
@@ -31,7 +42,7 @@ body {
   }
 
   &:hover {
-    background: #364550;
+    background: #efefef;
     
     .flag img {
       scale: 1.03;
@@ -49,18 +60,8 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgba($color: black, $alpha: .85);
-}
 
-.back {
-  background-color: $bg-home;
-  padding: .5rem .8rem;
-  width: min-content;
-  transition: 0.15s;
-
-  &:hover {
-    background-color: #364550;
-  }
-  &:active {
-    background-color: #2B3944;
+  .modal-content {
+    background: #fff;
   }
 }

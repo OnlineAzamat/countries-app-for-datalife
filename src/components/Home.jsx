@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Skeleton from 'react-loading-skeleton';
 import axios from 'axios';
 
+import theme from '../tailwind.class.js';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 const Home = () => {
@@ -35,7 +36,6 @@ const Home = () => {
     axios.get('https://restcountries.com/v3.1/all')
       .then((res) => {
         setCountries(res.data);
-        console.log(res.data[10])
       })
       .catch((err) => console.log(err));
   }, [])
@@ -61,7 +61,7 @@ const Home = () => {
           <i className="bi bi-search text-black text-xl absolute top-[27%] left-[1.2rem]"></i>
           <input type="text" onChange={handleSearchChange} className='p-2 pl-10 border rounded text-black' placeholder='Search for a country...' />
         </div>
-        <select name="Region" id="region" className='text-black m-2 rounded sm:px-3 max-sm:px-4 max-sm:py-2' onChange={handleRegionChange}>
+        <select name="Region" id="region" className='text-black m-2 rounded border sm:px-3 max-sm:px-4 max-sm:py-2' onChange={handleRegionChange}>
           <option value="">-Choose a Region-</option>
           <option value="africa">Africa</option>
           <option value="antarctic">Antarctic</option>
@@ -86,7 +86,9 @@ const Home = () => {
               className="country rounded-lg shadow-md hover:shadow-2xl cursor-pointer"
               variants={item} 
               layoutId={id} 
-              onClick={() => setSelectedId(id)}
+              onClick={() => {
+                setSelectedId(id)
+              }}
             >
               <div className="flag xl:h-[220px] md:h-[170px] sm:h-[150px]">
                 <img src={country?.flags?.png} className='w-[100%]' alt={country?.name?.common} />
@@ -114,18 +116,18 @@ const Home = () => {
             >
               <img className="w-[300px] rounded-lg mb-4" src={filteredCountries[selectedId].flags.png} alt={filteredCountries[selectedId].name.common} />
 
-              <div className="p-[1rem] px-10 bg-[#2B3944] rounded-lg shadow-2xl">
+              <div className="modal-content p-[1rem] px-10 rounded-lg shadow-2xl">
                 <h1 className="text-center lg:text-[3rem] md:text-[2.5rem] sm:text-[2rem] max-sm:text-[1.5rem] font-medium">{filteredCountries[selectedId].name.common}</h1>
                 <div className="sm:flex sm:gap-10">
                   <div className="leading-10">
-                    <p><i className="bi bi-globe"> </i><b>Native name: </b><span className="font-light">{filteredCountries[selectedId].name.nativeName?.eng?.official}</span></p>
+                    <p><i className="bi bi-asterisk"> </i><b>Capital: </b><span className="font-light">{ filteredCountries[selectedId]?.capital ? filteredCountries[selectedId]?.capital[0] : 'No data' }</span></p>
+                    <p><i className="bi bi-globe"> </i><b>Native name: </b><span className="font-light">{filteredCountries[selectedId].name.nativeName?.official}</span></p>
                     <p>
                       <i className="bi bi-people"> </i>
                       <b>Population: </b>
                       <span className="font-light">{ filteredCountries[selectedId].population.toLocaleString('en-US') }</span>
                     </p>
                     <p><i className="bi bi-geo-alt"> </i><b>Region: </b><span className="font-light">{ filteredCountries[selectedId].region }</span></p>
-                    <p><i className="bi bi-asterisk"> </i><b>Capital: </b><span className="font-light">{ filteredCountries[selectedId].capital[0] }</span></p>
                   </div>
                   <div className="leading-10">
                     <p><i className="bi bi-clock"> </i><b>Time Zones: </b><span className="font-light">{ filteredCountries[selectedId].timezones[0] }</span></p>
@@ -138,7 +140,7 @@ const Home = () => {
               <motion.button 
                 className="absolute top-4 right-8" 
                 onClick={() => setSelectedId(null)}
-              ><i className="bi bi-x-lg text-2xl"></i></motion.button>
+              ><i className={`bi bi-x-lg text-2xl ${theme === 'dark' ? '' : 'text-white'}`}></i></motion.button>
             </motion.div>
           </div>
         )}
